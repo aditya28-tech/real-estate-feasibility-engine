@@ -1,0 +1,892 @@
+{
+  "info": {
+    "name": "Project Aurora (Sample)",
+    "location": "Sample City, Rajasthan",
+    "project_type": "Mixed Development",
+    "start_date": "2027-06-30",
+    "deal_type": "JV",
+    "entity": "Company",
+    "scenario": "Base Case",
+    "lifecycle_override_years": null
+  },
+  "land": {
+    "area_sqyd": 30000,
+    "market_rate": 60000,
+    "dlc_rate_sqm": 13000,
+    "lo_share": 0.32,
+    "stamp_duty_jv": 0.0275,
+    "purchase_rate": 60000,
+    "stamp_duty_outright": 0.088,
+    "payment_curve": "Upfront",
+    "payment_start_q": 1,
+    "payment_end_q": 1
+  },
+  "scenarios": [
+    {
+      "name": "Best Case",
+      "sales_period_mult": 0.75,
+      "price_change": 0.05,
+      "cost_change": 0.0,
+      "delay_q": 0
+    },
+    {
+      "name": "Base Case",
+      "sales_period_mult": 1.0,
+      "price_change": 0.0,
+      "cost_change": 0.0,
+      "delay_q": 0
+    },
+    {
+      "name": "Worst Case",
+      "sales_period_mult": 1.5,
+      "price_change": -0.075,
+      "cost_change": 0.075,
+      "delay_q": 2
+    }
+  ],
+  "zones": [
+    {
+      "name": "Villa Development",
+      "share": 0.35
+    },
+    {
+      "name": "Apartment Development",
+      "share": 0.5
+    },
+    {
+      "name": "Plotted Development",
+      "share": 0.15
+    },
+    {
+      "name": "Other / Clubhouse",
+      "share": 0.0
+    }
+  ],
+  "products": [
+    {
+      "name": "Villas",
+      "zone": "Villa Development",
+      "category": "Villa",
+      "include": true,
+      "area_sqft": 250000,
+      "rate": 11000,
+      "construction_rate": 2900,
+      "launch_q": 3,
+      "sales_period_q": 8,
+      "sales_curve": "Front-loaded",
+      "clp_plan": "CLP – Villa",
+      "construction_start_q": 4,
+      "construction_duration_q": 12,
+      "construction_curve": "S-curve",
+      "timing": {
+        "launch_mode": "Fixed quarter",
+        "launch_link_product": null,
+        "launch_link_event": null,
+        "launch_offset": 0,
+        "cons_mode": "After own launch",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 1
+      }
+    },
+    {
+      "name": "Apartments – Towers A & B",
+      "zone": "Apartment Development",
+      "category": "Apartment",
+      "include": true,
+      "area_sqft": 600000,
+      "rate": 7500,
+      "construction_rate": 2900,
+      "launch_q": 4,
+      "sales_period_q": 12,
+      "sales_curve": "Even",
+      "clp_plan": "CLP – Apartment",
+      "construction_start_q": 5,
+      "construction_duration_q": 16,
+      "construction_curve": "S-curve",
+      "timing": {
+        "launch_mode": "Linked to another product",
+        "launch_link_product": "Villas",
+        "launch_link_event": "Launch",
+        "launch_offset": 1,
+        "cons_mode": "After own launch",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 1
+      }
+    },
+    {
+      "name": "Studios",
+      "zone": "Apartment Development",
+      "category": "Studio",
+      "include": true,
+      "area_sqft": 40000,
+      "rate": 9000,
+      "construction_rate": 3800,
+      "launch_q": 6,
+      "sales_period_q": 8,
+      "sales_curve": "Even",
+      "clp_plan": "CLP – Apartment",
+      "construction_start_q": 6,
+      "construction_duration_q": 12,
+      "construction_curve": "S-curve",
+      "timing": {
+        "launch_mode": "Linked to another product",
+        "launch_link_product": "Apartments – Towers A & B",
+        "launch_link_event": "Construction start",
+        "launch_offset": 1,
+        "cons_mode": "After own launch",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 0
+      }
+    },
+    {
+      "name": "High-street retail",
+      "zone": "Apartment Development",
+      "category": "Commercial",
+      "include": true,
+      "area_sqft": 30000,
+      "rate": 14000,
+      "construction_rate": 2900,
+      "launch_q": 8,
+      "sales_period_q": 8,
+      "sales_curve": "Back-loaded",
+      "clp_plan": "Down Payment Plan",
+      "construction_start_q": 6,
+      "construction_duration_q": 12,
+      "construction_curve": "S-curve",
+      "timing": {
+        "launch_mode": "Linked to another product",
+        "launch_link_product": "Apartments – Towers A & B",
+        "launch_link_event": "Launch",
+        "launch_offset": 4,
+        "cons_mode": "Linked to another product",
+        "cons_link_product": "Apartments – Towers A & B",
+        "cons_link_event": "Construction start",
+        "cons_offset": 1
+      }
+    },
+    {
+      "name": "Residential plots",
+      "zone": "Plotted Development",
+      "category": "Plot",
+      "include": false,
+      "area_sqft": 150000,
+      "rate": 4500,
+      "construction_rate": 450,
+      "launch_q": 10,
+      "sales_period_q": 8,
+      "sales_curve": "Even",
+      "clp_plan": "Plot – Development Linked",
+      "construction_start_q": 9,
+      "construction_duration_q": 8,
+      "construction_curve": "Even",
+      "timing": {
+        "launch_mode": "Fixed quarter",
+        "launch_link_product": null,
+        "launch_link_event": null,
+        "launch_offset": 0,
+        "cons_mode": "Fixed quarter",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 0
+      }
+    },
+    {
+      "name": "Institutional plots",
+      "zone": "Plotted Development",
+      "category": "Institutional",
+      "include": false,
+      "area_sqft": 30000,
+      "rate": 4000,
+      "construction_rate": 400,
+      "launch_q": 12,
+      "sales_period_q": 8,
+      "sales_curve": "Even",
+      "clp_plan": "Plot – Development Linked",
+      "construction_start_q": 9,
+      "construction_duration_q": 8,
+      "construction_curve": "Even",
+      "timing": {
+        "launch_mode": "Fixed quarter",
+        "launch_link_product": null,
+        "launch_link_event": null,
+        "launch_offset": 0,
+        "cons_mode": "Fixed quarter",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 0
+      }
+    },
+    {
+      "name": "EWS / LIG plots",
+      "zone": "Plotted Development",
+      "category": "EWS/LIG",
+      "include": false,
+      "area_sqft": 20000,
+      "rate": 1500,
+      "construction_rate": 400,
+      "launch_q": 10,
+      "sales_period_q": 8,
+      "sales_curve": "Even",
+      "clp_plan": "Plot – Development Linked",
+      "construction_start_q": 9,
+      "construction_duration_q": 8,
+      "construction_curve": "Even",
+      "timing": {
+        "launch_mode": "Fixed quarter",
+        "launch_link_product": null,
+        "launch_link_event": null,
+        "launch_offset": 0,
+        "cons_mode": "Fixed quarter",
+        "cons_link_product": null,
+        "cons_link_event": null,
+        "cons_offset": 0
+      }
+    }
+  ],
+  "costs": [
+    {
+      "key": "land",
+      "name": "Land Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Collections",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "sd",
+      "name": "Stamp Duty",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Upfront",
+      "start_q": 1,
+      "end_q": 1,
+      "basis": null
+    },
+    {
+      "key": "brok",
+      "name": "Brokerage",
+      "rate1": 0.0118,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Upfront",
+      "start_q": 1,
+      "end_q": 1,
+      "basis": null
+    },
+    {
+      "key": "villa",
+      "name": "Villa Construction Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "apt",
+      "name": "APT Construction Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "studio",
+      "name": "Studio Construction cost with furnishing",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "plot",
+      "name": "Plotted Construction Development Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "inst",
+      "name": "Institutional Plotted Development Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "comm",
+      "name": "Commercial Construction Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "ews_dev",
+      "name": "EWS/LIG plots development cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "ovh",
+      "name": "Corporate Overheads (Rs/Sq Ft SA)",
+      "rate1": 0.04,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Follow Project Life",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "mkt",
+      "name": "Marketing & Sales @ %",
+      "rate1": 0.07,
+      "rate2": 0.05,
+      "applicable": true,
+      "curve": "Follow Sales",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "legal",
+      "name": "Legal & Compliance (Rs/Sq Ft SA)",
+      "rate1": 75,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Front-loaded",
+      "start_q": 1,
+      "end_q": 8,
+      "basis": null
+    },
+    {
+      "key": "ews",
+      "name": "EWS / LIG @ Rs/Sq Ft (Builtup)",
+      "rate1": 400,
+      "rate2": 0.05,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "cont",
+      "name": "Contingency @ %",
+      "rate1": 0.0,
+      "rate2": "Construction cost",
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "edc",
+      "name": "External Development & Landscaping",
+      "rate1": 0.0,
+      "rate2": "Rs/sq ft (total saleable area)",
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "hotel",
+      "name": "Hotel Brand Key fee Rs 50K per Key for smaller brand",
+      "rate1": 50000,
+      "rate2": 0,
+      "applicable": true,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "furn",
+      "name": "Furnishing Cost for Studios",
+      "rate1": 500,
+      "rate2": null,
+      "applicable": false,
+      "curve": "Follow Construction",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "gst",
+      "name": "GST cost in case of commercial/Plotting development",
+      "rate1": 0.18,
+      "rate2": 0.2,
+      "applicable": false,
+      "curve": "At Project End",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "aif",
+      "name": "AIF Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": false,
+      "curve": "Follow Project Life",
+      "start_q": null,
+      "end_q": null,
+      "basis": null
+    },
+    {
+      "key": "bar",
+      "name": "BAR / Premium FAR Cost",
+      "rate1": null,
+      "rate2": null,
+      "applicable": true,
+      "curve": "Upfront",
+      "start_q": 2,
+      "end_q": 2,
+      "basis": null
+    }
+  ],
+  "bar": {
+    "authority": "JDA",
+    "land_use": "Residential",
+    "free_far": 2.0,
+    "loading_factor": 1.35,
+    "reserved_price_sqm": 12000,
+    "gst_applicable": false,
+    "gst_rate": 0.18,
+    "pct_table": {
+      "Industrial": {
+        "RIICO": 0.2,
+        "JDA": null
+      },
+      "Residential": {
+        "RIICO": 0.3,
+        "JDA": 0.2
+      },
+      "Commercial": {
+        "RIICO": 0.4,
+        "JDA": 0.4
+      }
+    }
+  },
+  "aif": {
+    "rate": 0.18,
+    "tenure_years": 3,
+    "compounding": "Annually"
+  },
+  "initial": {
+    "advance_pct": 0.1,
+    "dd_amount": 0.0,
+    "da_amount": 0.0,
+    "legal_share": 1.0,
+    "bar_share": 0.25,
+    "dev_cost_pre_da": 0.0,
+    "marketing_pre_launch": 0.0,
+    "payout_q": {
+      "token": 1,
+      "dd": 1,
+      "da": 2,
+      "legal": 2,
+      "dev": 2,
+      "marketing": 2,
+      "sd": 2,
+      "brok": 2,
+      "bar": 2
+    },
+    "outright_construction_share": 0.1,
+    "outright_legal_share": 0.1
+  },
+  "catch_up_lag": 1,
+  "plans": [
+    {
+      "name": "CLP – Villa",
+      "milestones": [
+        {
+          "name": "Earnest money",
+          "trigger": "Booking + quarters",
+          "value": 0,
+          "pct": 0.1
+        },
+        {
+          "name": "Agreement to sell (ATS)",
+          "trigger": "Booking + quarters",
+          "value": 1,
+          "pct": 0.1
+        },
+        {
+          "name": "Commencement of construction",
+          "trigger": "Construction % complete",
+          "value": 0.05,
+          "pct": 0.1
+        },
+        {
+          "name": "Ground plinth",
+          "trigger": "Construction % complete",
+          "value": 0.15,
+          "pct": 0.1
+        },
+        {
+          "name": "First floor roof casting",
+          "trigger": "Construction % complete",
+          "value": 0.35,
+          "pct": 0.15
+        },
+        {
+          "name": "Second floor roof casting",
+          "trigger": "Construction % complete",
+          "value": 0.55,
+          "pct": 0.15
+        },
+        {
+          "name": "Third floor roof casting",
+          "trigger": "Construction % complete",
+          "value": 0.75,
+          "pct": 0.15
+        },
+        {
+          "name": "Completion certificate (CC)",
+          "trigger": "Construction % complete",
+          "value": 0.95,
+          "pct": 0.05
+        },
+        {
+          "name": "Possession",
+          "trigger": "Construction % complete",
+          "value": 1.0,
+          "pct": 0.1
+        }
+      ]
+    },
+    {
+      "name": "CLP – Apartment",
+      "milestones": [
+        {
+          "name": "Booking amount",
+          "trigger": "Booking + quarters",
+          "value": 0,
+          "pct": 0.1
+        },
+        {
+          "name": "Agreement to sell (ATS)",
+          "trigger": "Booking + quarters",
+          "value": 1,
+          "pct": 0.1
+        },
+        {
+          "name": "Foundation completion",
+          "trigger": "Construction % complete",
+          "value": 0.1,
+          "pct": 0.1
+        },
+        {
+          "name": "Podium / plinth",
+          "trigger": "Construction % complete",
+          "value": 0.2,
+          "pct": 0.1
+        },
+        {
+          "name": "Slab casting – 25% floors",
+          "trigger": "Construction % complete",
+          "value": 0.35,
+          "pct": 0.1
+        },
+        {
+          "name": "Slab casting – 50% floors",
+          "trigger": "Construction % complete",
+          "value": 0.5,
+          "pct": 0.1
+        },
+        {
+          "name": "Slab casting – 75% floors",
+          "trigger": "Construction % complete",
+          "value": 0.65,
+          "pct": 0.1
+        },
+        {
+          "name": "Top slab casting",
+          "trigger": "Construction % complete",
+          "value": 0.8,
+          "pct": 0.1
+        },
+        {
+          "name": "Brickwork & plaster",
+          "trigger": "Construction % complete",
+          "value": 0.9,
+          "pct": 0.05
+        },
+        {
+          "name": "Flooring & finishing",
+          "trigger": "Construction % complete",
+          "value": 0.95,
+          "pct": 0.05
+        },
+        {
+          "name": "Possession",
+          "trigger": "Construction % complete",
+          "value": 1.0,
+          "pct": 0.1
+        }
+      ]
+    },
+    {
+      "name": "Plot – Development Linked",
+      "milestones": [
+        {
+          "name": "Booking amount",
+          "trigger": "Booking + quarters",
+          "value": 0,
+          "pct": 0.1
+        },
+        {
+          "name": "Agreement to sell (ATS)",
+          "trigger": "Booking + quarters",
+          "value": 1,
+          "pct": 0.2
+        },
+        {
+          "name": "Roads & services start",
+          "trigger": "Construction % complete",
+          "value": 0.25,
+          "pct": 0.2
+        },
+        {
+          "name": "Services 60% complete",
+          "trigger": "Construction % complete",
+          "value": 0.6,
+          "pct": 0.2
+        },
+        {
+          "name": "Possession / registry",
+          "trigger": "Construction % complete",
+          "value": 1.0,
+          "pct": 0.3
+        }
+      ]
+    },
+    {
+      "name": "Down Payment Plan",
+      "milestones": [
+        {
+          "name": "Booking amount",
+          "trigger": "Booking + quarters",
+          "value": 0,
+          "pct": 0.1
+        },
+        {
+          "name": "Down payment",
+          "trigger": "Booking + quarters",
+          "value": 1,
+          "pct": 0.8
+        },
+        {
+          "name": "Possession",
+          "trigger": "Construction % complete",
+          "value": 1.0,
+          "pct": 0.1
+        }
+      ]
+    },
+    {
+      "name": "CLP – 17-Floor Tower",
+      "milestones": [
+        {
+          "name": "Booking amount",
+          "trigger": "Booking + quarters",
+          "value": 0,
+          "pct": 0.1
+        },
+        {
+          "name": "Agreement to sell (ATS)",
+          "trigger": "Booking + quarters",
+          "value": 1,
+          "pct": 0.1
+        },
+        {
+          "name": "Excavation",
+          "trigger": "Construction % complete",
+          "value": 0.03,
+          "pct": 0.05
+        },
+        {
+          "name": "Foundation / raft",
+          "trigger": "Construction % complete",
+          "value": 0.08,
+          "pct": 0.05
+        },
+        {
+          "name": "Slab casting – floor 1",
+          "trigger": "Construction % complete",
+          "value": 0.12,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 2",
+          "trigger": "Construction % complete",
+          "value": 0.15625,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 3",
+          "trigger": "Construction % complete",
+          "value": 0.1925,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 4",
+          "trigger": "Construction % complete",
+          "value": 0.22875,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 5",
+          "trigger": "Construction % complete",
+          "value": 0.265,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 6",
+          "trigger": "Construction % complete",
+          "value": 0.30125,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 7",
+          "trigger": "Construction % complete",
+          "value": 0.3375,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 8",
+          "trigger": "Construction % complete",
+          "value": 0.37375,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 9",
+          "trigger": "Construction % complete",
+          "value": 0.41,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 10",
+          "trigger": "Construction % complete",
+          "value": 0.44625,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 11",
+          "trigger": "Construction % complete",
+          "value": 0.4825,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 12",
+          "trigger": "Construction % complete",
+          "value": 0.51875,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 13",
+          "trigger": "Construction % complete",
+          "value": 0.555,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 14",
+          "trigger": "Construction % complete",
+          "value": 0.59125,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 15",
+          "trigger": "Construction % complete",
+          "value": 0.6275,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 16",
+          "trigger": "Construction % complete",
+          "value": 0.66375,
+          "pct": 0.025
+        },
+        {
+          "name": "Slab casting – floor 17",
+          "trigger": "Construction % complete",
+          "value": 0.7,
+          "pct": 0.025
+        },
+        {
+          "name": "Brickwork",
+          "trigger": "Construction % complete",
+          "value": 0.78,
+          "pct": 0.05
+        },
+        {
+          "name": "Plaster & MEP",
+          "trigger": "Construction % complete",
+          "value": 0.85,
+          "pct": 0.05
+        },
+        {
+          "name": "Flooring & finishing",
+          "trigger": "Construction % complete",
+          "value": 0.92,
+          "pct": 0.075
+        },
+        {
+          "name": "Possession",
+          "trigger": "Construction % complete",
+          "value": 1.0,
+          "pct": 0.1
+        }
+      ]
+    }
+  ],
+  "finance": {
+    "tax_company": 0.26,
+    "tax_llp": 0.35,
+    "cost_of_equity": 0.18,
+    "benchmarks": {
+      "project_irr": 0.22,
+      "developer_irr": 0.18,
+      "equity_multiple": 2.0,
+      "roce": 0.3,
+      "cagr": 0.3,
+      "pat_margin": 0.15,
+      "ebitda_margin": 0.2
+    }
+  }
+}
